@@ -6,7 +6,12 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// Permitindo acesso do frontend na Netlify
+app.use(cors({
+  origin: 'https://pataformafranceshjf.netlify.app/'
+}));
+
+//app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb+srv://frances_plataforma:19handyrio@francescluster.m8koll3.mongodb.net/',{
